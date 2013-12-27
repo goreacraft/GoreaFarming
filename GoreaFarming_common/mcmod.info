@@ -1,0 +1,16 @@
+[
+    {
+        "modid": "GoreaFarming",
+        "name": "GoreaFarming",
+        "description": "Realistic farming in Minecraft",
+        "version": "0.0.1",
+        "mcversion": "1.6.4",
+        "url": "http://www.goreacraft.com",
+        "authors": [
+            "goreacraft"
+        ],
+        "screenshots": [],
+        "parent": "",
+        "dependencies": []
+    }
+]
