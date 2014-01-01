@@ -143,7 +143,7 @@ public class GoreaTomatoPlant extends BlockCrops
 	     */
 	    public int getRenderType()
 	    {
-	        return 6;
+	        return 1;
 	    }
 
 	    /**
@@ -178,7 +178,7 @@ public class GoreaTomatoPlant extends BlockCrops
 
 	        if (metadata >= 7)
 	        { 
-	            for (int n = 0; n < 3 + fortune; n++)
+	            for (int n = 5; n < 0 + fortune; n++)
 	            {
 	                if (world.rand.nextInt(15) <= metadata)
 	                {
