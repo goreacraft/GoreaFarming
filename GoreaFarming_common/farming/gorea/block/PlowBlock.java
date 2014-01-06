@@ -1,15 +1,13 @@
 package farming.gorea.block;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import farming.gorea.GoreaFarming;
-import farming.gorea.lib.Reference;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockAnvil;
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import farming.gorea.GoreaFarming;
+import farming.gorea.lib.Reference;
 
 public class PlowBlock extends BlockSand {
 

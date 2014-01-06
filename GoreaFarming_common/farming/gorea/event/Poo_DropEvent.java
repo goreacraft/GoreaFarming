@@ -2,42 +2,80 @@ package farming.gorea.event;
 
 import java.util.Random;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.passive.EntityChicken;
+import net.minecraft.entity.passive.EntityCow;
+import net.minecraft.entity.passive.EntityHorse;
+import net.minecraft.entity.passive.EntityPig;
+import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.passive.EntityVillager;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import farming.gorea.GoreaFarming;
 
 public class Poo_DropEvent {
-
-          public static double rand;
-          public Random r = new Random();
-		  public int timeUntilNextPoop = 6000;
-
+	
+		private static Random rand = new Random();
+		
           @ForgeSubscribe
-          public void onEntityDrop(LivingDropsEvent event) {
-        	  if(event.entityLiving instanceof EntityChicken) {
-        		  event.entityLiving.dropItem(GoreaFarming.poopItem.itemID, r.nextInt(2));
-        	  }
-          }
-		  /*@ForgeSubscribe
-		  public void EntityChicken(){
-			  this.timeUntilNextPoop = this.rand.nextInt(6000) + 6000;
-		  }*/
-          @ForgeSubscribe
-          public void onEntityDrop(LivingUpdateEvent ev)
-          { 
-        	  if(ev.entityLiving instanceof EntityChicken) {
-        		  ev.entityLiving.dropItem(GoreaFarming.poopItem.itemID, 0);
-        		  this.timeUntilNextPoop = this.timeUntilNextPoop + 6000;
+          public void mobDrops(LivingDropsEvent event)
+          {
+        	  
+        	  EntityLivingBase mob = event.entityLiving;
+        	  if (mob instanceof EntityChicken)
+      			{         		  
+        		  mob.dropItem(GoreaFarming.poopItem.itemID, rand.nextInt(2));
+        		 // System.out.println(rand.nextInt(2));
         		  
-        	  }
-              /*if (!this.isChild() && !this.worldObj.isRemote && --this.timeUntilNextEgg <= 0)
-              {
-                  this.playSound("mob.chicken.plop", 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
-                  this.dropItem(Item.egg.itemID, 1);
-                  this.timeUntilNextEgg = this.rand.nextInt(6000) + 6000;
-              }*/
+      			}
+        	 
+        	  if (mob instanceof EntityCow)
+      			{         		  
+        		  mob.dropItem(GoreaFarming.poopItem.itemID, rand.nextInt(2));
+        		 // System.out.println(rand.nextInt(2));
+        		  
+      			}
+        	 
+        	  if (mob instanceof EntitySheep)
+      			{         		  
+        		  mob.dropItem(GoreaFarming.poopItem.itemID, rand.nextInt(2));
+        		 // System.out.println(rand.nextInt(2));
+        		  
+      			}
+        	 
+        	  if (mob instanceof EntityCreeper)
+      			{         		  
+        		  mob.dropItem(GoreaFarming.poopItem.itemID, rand.nextInt(2));
+        		 // System.out.println(rand.nextInt(2));
+        		  
+      			}
+        	  
+        	  if (mob instanceof EntityVillager)
+    			{         		  
+      		  mob.dropItem(GoreaFarming.poopItem.itemID, rand.nextInt(2));
+      		 // System.out.println(rand.nextInt(2));
+      		  
+    			}
+        	  
+        	  if (mob instanceof EntityPig)
+  			{         		  
+    		  mob.dropItem(GoreaFarming.poopItem.itemID, rand.nextInt(2));
+    		 // System.out.println(rand.nextInt(2));
+    		  
+  			}
+        	  
+        	  if (mob instanceof EntityHorse)
+    			{         		  
+      		  mob.dropItem(GoreaFarming.poopItem.itemID, rand.nextInt(2));
+      		 // System.out.println(rand.nextInt(2));
+      		  
+    			}
+        	  
           }
-                  
+ 
 }

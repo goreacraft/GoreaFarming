@@ -8,18 +8,23 @@ import net.minecraft.block.BlockMushroom;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.BlockStem;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.item.EntityExpBottle;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.entity.projectile.EntityEgg;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.Event.Result;
+import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import farming.gorea.GoreaFarming;
 import farming.gorea.block.GoreaTomatoPlant;
+import farming.gorea.entity.EntityPoop;
 
 public class Poop extends Item
 {
@@ -30,10 +35,27 @@ public class Poop extends Item
 		this.setCreativeTab(GoreaFarming.tabGorea);
 		//setUnlocalizedName("Tomato");
 		}
+	  
 		@Override
 	    @SideOnly(Side.CLIENT)
 	    public void registerIcons(IconRegister ir){
 	    	this.itemIcon = ir.registerIcon("GoreaFarming:poop");
+	    }
+		public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	    {
+	        if (!par3EntityPlayer.capabilities.isCreativeMode)
+	        {
+	            --par1ItemStack.stackSize;
+	        }
+
+	        par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+
+	       // if (!par2World.isRemote)
+	       // {
+	           par2World.spawnEntityInWorld(new EntityPoop(par2World, par3EntityPlayer));
+	      //  }
+
+	        return par1ItemStack;
 	    }
 		 public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10)
 		    {
